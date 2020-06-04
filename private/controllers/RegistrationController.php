@@ -51,10 +51,20 @@ class RegistrationController {
                     'wachtwoord'    => $safe_password
                 ];
                 $statement->execute( $params );
-                echo "Klaar met verwerken!";
-                exit;
+                
+                $bedanktUrl = url('registratie.thanks');
+                redirect($bedanktUrl);
             }
         }
 
-	}
+        $template_engine = get_template_engine();
+        echo $template_engine->render('registreren', ['errors' => $errors]);
+
+    }
+    
+    public function registratieThanks(){
+        $template_engine = get_template_engine();
+        echo $template_engine->render("registratie_thanks");
+    }
+
 }

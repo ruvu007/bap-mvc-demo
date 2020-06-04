@@ -14,6 +14,7 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 	SimpleRouter::get( '/home', 'WebsiteController@home' )->name( 'home' );
 	SimpleRouter::get( '/registreren', 'RegistrationController@registratieForm' )->name( 'registratie.form' );
 	SimpleRouter::post( '/registreren/verwerken', 'RegistrationController@verwerkRegistrationForm' )->name( 'registratie.verwerk' );
+	SimpleRouter::get( '/registreren/bedankt', 'RegistrationController@registratieThanks' )->name( 'registratie.thanks' );
 	// STOP: Tot hier al je eigen URL's zetten
 
 	SimpleRouter::get( '/not-found', function () {
